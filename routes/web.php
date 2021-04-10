@@ -35,5 +35,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::resource('/ringtones', RingtoneController::class)->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::resource('ringtones', RingtoneController::class);
+    Route::resource('ringtones', 'RingtoneController');
 });
