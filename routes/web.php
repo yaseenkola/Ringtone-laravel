@@ -32,8 +32,8 @@ Auth::routes([
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/ringtones', RingtoneController::class)->middleware('auth');
+// Route::resource('/ringtones', RingtoneController::class)->middleware('auth');
 
-
-
-
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('ringtones', RingtoneController::class);
+});
